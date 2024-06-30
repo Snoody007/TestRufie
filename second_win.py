@@ -11,6 +11,13 @@ from instr import *
 from final_win import *
 
 
+class Experiment():
+    def __init__(self,age,test1,test2,test3):
+        self.age = age
+        self.t1 = test1
+        self.t2 = test2
+        self.t3 = test3
+
 class TestWin(QWidget):
     def __init__(self):
         super().__init__()
@@ -140,7 +147,8 @@ class TestWin(QWidget):
   
     def next_click(self):
         self.hide()
-        self.fw = FinalWin()
+        self.exp = Experiment(int(self.line_age.text()),self.line_test1.text(),self.line_test2.text(),self.line_test3.text())
+        self.fw = FinalWin(self.exp)
 
 
     def set_appear(self):
